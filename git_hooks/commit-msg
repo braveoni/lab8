@@ -5,7 +5,7 @@ import re
 import sys
 
 
-regex = r'^\[[0-9]+\][а-яА-яa-zA-Z]+'
+regex = r'^\[[0-9]+\][a-zA-Z]+'
 msg = ''
 with open(sys.argv[1], 'r') as os:
     msg = os.read()

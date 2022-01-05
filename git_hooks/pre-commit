@@ -1,25 +1,12 @@
 #!/bin/sh
 
 
-CHANGED_PYTHON_FILES=$(git diff --cached --name-only --diff-filter=ACMR | grep ".py\$")
+FILES=$(git diff-tree --no-commit-id --name-only HEAD)
 source env/Scripts/activate
 
-if [ -z "$CHANGED_PYTHON_FILES" ]
-then
-   echo "No Python files found. No reason to run checks."
-   exit 0
-fi
-
-set -e
-
-pylint $CHANGED_PYTHON_FILES
-black --check $CHANGED_PYTHON_FILES
-
-for file in $CHANGED_PYTHON_FILES; do
+for file in $FILES; do
     echo $file
     if [[ "$file" == *".py" ]]; then
         $(black ${file})
     fi
 done
-
-echo "All checks successfully passed."

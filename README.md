@@ -1,4 +1,4 @@
-# lab6-8
+# lab8
 
 ![image](https://user-images.githubusercontent.com/49433877/150968178-8934a223-b838-4eca-b03e-d56275e73351.png)
 
